@@ -13,7 +13,7 @@ use warnings;
 use English qw(-no_match_vars);
 
 while (<STDIN>) {
-    s/([[:alpha:]])/rand(2) >= 1 ? chr(ord($1) ^ ord('A') ^ ord('a')) : $1/ge;
+    s/([[:alpha:]])/rand(2) >= 1 ? "\L$1" : "\U$1"/ge;
     print or die $ERRNO;
 }
 
